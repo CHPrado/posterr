@@ -1,5 +1,9 @@
+@use "./sass/variables";
+
 body {
   margin: 0;
+  background: variables.$color-background;
+  color: variables.$color-text-main;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
