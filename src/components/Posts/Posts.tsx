@@ -1,35 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { Link, useOutletContext } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
+import { useUser } from "../../hooks";
 import usePosts from "../../hooks/usePosts";
-import { PostItem, UserProps } from "../../interfaces";
+import { PostItem } from "../../interfaces";
 import { fakeApi } from "../../services";
 
-interface OutletContext {
-  loggedUser: UserProps;
-  isHome: boolean;
-}
-
 const Posts = () => {
+  const { getUser } = useUser();
   const { createPostList } = usePosts();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const [posts, setPosts] = useState<PostItem[]>([]);
-  const { isHome, loggedUser } = useOutletContext<OutletContext>();
+  const [user] = useState(getUser());
 
   useEffect(() => {
-    if (!loggedUser) return;
+    if (!user) return;
 
     if (isHome) {
-      fakeApi.getPosts().then((posts) => {
-        setPosts(createPostList(posts));
+      fakeApi.getPosts().then((response) => {
+        setPosts(createPostList(response.data));
       });
     } else {
-      fakeApi.getFollowingPosts(loggedUser.followingIds).then((posts) => {
-        setPosts(createPostList(posts));
+      fakeApi.getFollowingPosts(user.followingIds).then((response) => {
+        setPosts(createPostList(response.data));
       });
     }
     //eslint-disable-next-line
-  }, [loggedUser, isHome]);
+  }, [user, isHome]);
 
   return (
     <>

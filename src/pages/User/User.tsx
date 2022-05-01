@@ -8,9 +8,8 @@ const User = () => {
   const { id } = useParams<"id">();
   const [user, setUser] = useState<UserProps>();
 
-  console.log(id);
   useEffect(() => {
-    fakeApi.getUserById(Number(id)).then((user) => setUser(user));
+    fakeApi.getUserById(Number(id)).then((response) => setUser(response.data));
   }, [id]);
 
   return (

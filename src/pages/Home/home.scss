@@ -24,11 +24,15 @@
         padding: variables.$space-medium;
         text-decoration: none;
         font-weight: bold;
+
+        &:hover {
+          background: variables.$color-button-hover;
+        }
       }
 
       .home-nav-active {
         color: variables.$color-text-main;
-        border-bottom: solid 8px white;
+        border-bottom: solid variables.$space-small variables.$color-active;
       }
 
       .home-nav-inactive {

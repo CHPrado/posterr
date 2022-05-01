@@ -12,10 +12,10 @@ function usePosts() {
         repost = posts.find((item) => item.id === post.postId) as PostProps;
       }
 
-      fakeApi.getUserById(post.userId).then((user) => {
+      fakeApi.getUserById(post.userId).then((respose) => {
         postList.push({
           ...post,
-          user,
+          user: respose.data,
           repost,
         });
       });

@@ -1,16 +1,15 @@
-import React, { FC } from "react";
+import React, { useState } from "react";
 import { FaHome, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import { UserProps } from "../../interfaces";
+import { useUser } from "../../hooks";
 
 import "./header.scss";
 
-interface HeaderParams {
-  loggedUser?: UserProps;
-}
+const Header = () => {
+  const { getUser } = useUser();
+  const [user] = useState(getUser());
 
-const Header: FC<HeaderParams> = ({ loggedUser }) => {
   return (
     <div className="header-wrapper">
       <div className="header-container">
@@ -21,15 +20,15 @@ const Header: FC<HeaderParams> = ({ loggedUser }) => {
             <FaHome size={24} />
             <span>Home</span>
           </Link>
-          <Link to={`/user/${loggedUser?.id}`}>
+          <Link to={`/user/${user.id}`}>
             <FaUser size={24} />
             <span>Profile</span>
           </Link>
         </div>
 
         <div className="header-user-container">
-          <img src={loggedUser?.avatar} alt={"logged-user-avatar"} />
-          <span>{loggedUser?.name}</span>
+          <img src={user.avatar} alt={"logged-user-avatar"} />
+          <span>{user.name}</span>
         </div>
       </div>
     </div>
