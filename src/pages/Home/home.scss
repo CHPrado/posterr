@@ -1,0 +1,39 @@
+@use "../../sass/variables";
+
+.home-content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: variables.$space-large;
+
+  .home-content-container {
+    height: 100vh;
+    min-width: 500px;
+    border-left: variables.$divider;
+    border-right: variables.$divider;
+    padding-top: variables.$space-x-large;
+
+    > nav {
+      display: flex;
+      border-bottom: variables.$divider;
+
+      > a {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: variables.$space-medium;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .home-nav-active {
+        color: variables.$color-text-main;
+        border-bottom: solid 8px white;
+      }
+
+      .home-nav-inactive {
+        color: variables.$color-text-secondary;
+      }
+    }
+  }
+}

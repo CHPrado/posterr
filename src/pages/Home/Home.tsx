@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
+import { Header } from "../../components";
 import { UserProps } from "../../interfaces";
 import { fakeApi } from "../../services";
 
+import "./home.scss";
+
 const Home = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const [loggedUser, setLoggedUser] = useState<UserProps>();
 
   useEffect(() => {
@@ -14,16 +19,28 @@ const Home = () => {
 
   return (
     <div>
-      <h2>
-        Welcome to the Home Page
-        <Link to={`/user/${loggedUser?.id}`}>{loggedUser?.name}</Link>
-      </h2>
-      <nav>
-        <Link to="/">Posts</Link>
-        <Link to="/following">Who you follow</Link>
-      </nav>
+      <Header loggedUser={loggedUser} />
 
-      <Outlet context={loggedUser} />
+      <div className="home-content-wrapper">
+        <div className="home-content-container">
+          <nav>
+            <Link
+              to="/"
+              className={isHome ? "home-nav-active" : "home-nav-inactive"}
+            >
+              <span>Posts</span>
+            </Link>
+            <Link
+              to="/following"
+              className={isHome ? "home-nav-inactive" : "home-nav-active"}
+            >
+              <span>Following</span>
+            </Link>
+          </nav>
+
+          <Outlet context={loggedUser} />
+        </div>
+      </div>
     </div>
   );
 };
