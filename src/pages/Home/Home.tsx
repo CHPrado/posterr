@@ -38,7 +38,7 @@ const Home = () => {
             </Link>
           </nav>
 
-          <Outlet context={loggedUser} />
+          <Outlet context={{ loggedUser, isHome }} />
         </div>
       </div>
     </div>

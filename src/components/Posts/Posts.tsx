@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
@@ -6,30 +6,30 @@ import usePosts from "../../hooks/usePosts";
 import { PostItem, UserProps } from "../../interfaces";
 import { fakeApi } from "../../services";
 
-interface PostParams {
-  followingPosts?: boolean;
+interface OutletContext {
+  loggedUser: UserProps;
+  isHome: boolean;
 }
 
-const Posts: FC<PostParams> = ({ followingPosts }) => {
+const Posts = () => {
   const { createPostList } = usePosts();
   const [posts, setPosts] = useState<PostItem[]>([]);
-
-  const user = useOutletContext<UserProps>();
+  const { isHome, loggedUser } = useOutletContext<OutletContext>();
 
   useEffect(() => {
-    if (!user) return;
+    if (!loggedUser) return;
 
-    if (followingPosts) {
-      fakeApi.getFollowingPosts(user.followingIds).then((posts) => {
+    if (isHome) {
+      fakeApi.getPosts().then((posts) => {
         setPosts(createPostList(posts));
       });
     } else {
-      fakeApi.getPosts().then((posts) => {
+      fakeApi.getFollowingPosts(loggedUser.followingIds).then((posts) => {
         setPosts(createPostList(posts));
       });
     }
     //eslint-disable-next-line
-  }, [user, followingPosts]);
+  }, [loggedUser, isHome]);
 
   return (
     <>
