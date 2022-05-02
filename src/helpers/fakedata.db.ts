@@ -66,13 +66,13 @@ const posts: PostProps[] = [
   {
     id: 7,
     userId: 2,
-    postId: 9,
+    postId: 6,
   },
   {
     id: 8,
     text: "Elon Musk quote Mark Zuckerberg's post",
     userId: 2,
-    postId: 9,
+    postId: 6,
   },
 ];
 

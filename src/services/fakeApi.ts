@@ -8,18 +8,27 @@ const fakeApi = {
     ) as PostProps[];
   },
 
-  async getUserById(userId: number) {
-    const user = users.find((user) => user.id === userId) as UserProps;
-    return { data: user };
-  },
-
   async getPosts() {
     const posts = this.posts();
 
     return { data: posts };
   },
 
-  async createPost(text: string, userId: number, postId?: number) {
+  // ? gets posts from users the logged user follows
+  async getFollowingPosts(followingIds: number[]) {
+    const posts = this.posts().filter((post) =>
+      followingIds.includes(post.userId)
+    );
+
+    return { data: posts };
+  },
+
+  async createPost(
+    text: string,
+    userId: number,
+    setPosts: React.Dispatch<React.SetStateAction<PostProps[]>>,
+    postId?: number
+  ) {
     const posts = this.posts();
     const id = posts[posts.length - 1].id + 1;
 
@@ -31,15 +40,12 @@ const fakeApi = {
     });
 
     localStorage.setItem("posterr-posts", JSON.stringify(posts));
+    setPosts(posts);
   },
 
-  // ? gets posts from users the logged user follows
-  async getFollowingPosts(followingIds: number[]) {
-    const posts = this.posts().filter((post) =>
-      followingIds.includes(post.userId)
-    );
-
-    return { data: posts };
+  async getUserById(userId: number) {
+    const user = users.find((user) => user.id === userId) as UserProps;
+    return { data: user };
   },
 };
 

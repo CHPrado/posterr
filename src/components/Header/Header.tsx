@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { FaHome, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import { useUser } from "../../hooks";
+import { posterrContext } from "../../contexts";
 
 import "./header.scss";
 
 const Header = () => {
-  const { getUser } = useUser();
-  const [user] = useState(getUser());
+  const { user } = useContext(posterrContext);
 
   return (
     <div className="header-wrapper">

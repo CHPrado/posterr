@@ -1,26 +1,31 @@
-import { posts, users } from "../helpers/fakedata.db";
+import { posts as defaultPosts, users } from "../helpers/fakedata.db";
+import { PostProps, UserProps } from "../interfaces";
 
 function useData() {
-  function loadPosts() {
+  function loadPosts(
+    setPosts: React.Dispatch<React.SetStateAction<PostProps[]>>
+  ) {
     // ? load default posts on localhost
     const currentPosts = JSON.parse(
       localStorage.getItem("posterr-posts") as string
-    );
+    ) as PostProps[];
 
-    if (!currentPosts) {
-      localStorage.setItem("posterr-posts", JSON.stringify(posts));
-    }
+    const posts = currentPosts ? currentPosts : defaultPosts;
+
+    localStorage.setItem("posterr-posts", JSON.stringify(posts));
+    setPosts(posts);
   }
 
   // ? set the first user as default logged user on localhost
-  function loggin() {
-    const currentUser = JSON.parse(
-      localStorage.getItem("posterr-posts") as string
-    );
+  function loggin(setUser: React.Dispatch<React.SetStateAction<UserProps>>) {
+    let currentUser = JSON.parse(
+      localStorage.getItem("posterr-user") as string
+    ) as UserProps;
 
-    if (!currentUser) {
-      localStorage.setItem("posterr-user", JSON.stringify(users[0]));
-    }
+    const user = currentUser ? currentUser : users[0];
+
+    localStorage.setItem("posterr-user", JSON.stringify(user));
+    setUser(user);
   }
 
   return { loadPosts, loggin };

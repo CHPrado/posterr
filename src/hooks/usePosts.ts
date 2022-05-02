@@ -3,16 +3,16 @@ import { fakeApi } from "../services";
 
 function usePosts() {
   // ? gets all posts and creates a post object with reposts and user
-  function createPostList(posts: PostProps[]) {
+  async function createPostList(posts: PostProps[]) {
     const postList: PostItem[] = [];
 
-    posts.forEach((post) => {
+    posts.forEach(async (post) => {
       let repost: PostProps;
       if (post.postId) {
         repost = posts.find((item) => item.id === post.postId) as PostProps;
       }
 
-      fakeApi.getUserById(post.userId).then((respose) => {
+      await fakeApi.getUserById(post.userId).then((respose) => {
         postList.push({
           ...post,
           user: respose.data,
