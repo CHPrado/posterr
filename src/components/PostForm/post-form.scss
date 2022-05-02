@@ -1,0 +1,67 @@
+@use "../../sass/variables";
+
+.post-form-wrapper {
+  display: flex;
+  padding: variables.$space-medium;
+
+  > img {
+    border-radius: 100%;
+    height: variables.$space-x-large;
+  }
+
+  .post-form-container {
+    width: 100%;
+    padding: 0 variables.$space-medium;
+
+    > textarea {
+      width: 100%;
+      resize: vertical;
+      overflow: auto;
+      font-size: variables.$space-medium;
+      min-height: variables.$space-x-large;
+      max-height: calc(variables.$space-x-large * 4);
+    }
+
+    .post-form-button-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: variables.$space-small 0 variables.$space-small;
+
+      > span {
+        color: variables.$color-text-secondary;
+        margin-right: variables.$space-small;
+        font-weight: bold;
+      }
+
+      > button {
+        border: none;
+        font-weight: bold;
+        color: variables.$color-text-main;
+        background: variables.$color-active;
+        font-size: variables.$space-medium;
+        border-radius: variables.$space-medium;
+        padding: variables.$space-small;
+
+        > span {
+          margin: 0 variables.$space-small;
+        }
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.85;
+        }
+      };
+
+      .disabled-button {
+        color: variables.$color-text-disabled;
+        background: variables.$color-disabled;
+
+        &:hover {
+          cursor: auto;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

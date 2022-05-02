@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
-import { Header } from "../../components";
-import { UserProps } from "../../interfaces";
-import { fakeApi } from "../../services";
+import { Header, PostForm } from "../../components";
 
 import "./home.scss";
 
 const Home = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const [loggedUser, setLoggedUser] = useState<UserProps>();
-
-  useEffect(() => {
-    fakeApi.getUser().then((user) => setLoggedUser(user));
-    //eslint-disable-next-line
-  }, []);
 
   return (
     <div>
-      <Header loggedUser={loggedUser} />
+      <Header />
 
       <div className="home-content-wrapper">
         <div className="home-content-container">
+          <PostForm />
+
           <nav>
             <Link
               to="/"
@@ -38,7 +32,7 @@ const Home = () => {
             </Link>
           </nav>
 
-          <Outlet context={{ loggedUser, isHome }} />
+          <Outlet />
         </div>
       </div>
     </div>

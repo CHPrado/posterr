@@ -7,10 +7,10 @@
   padding-top: variables.$space-large;
 
   .home-content-container {
-    height: 100vh;
     min-width: 500px;
     border-left: variables.$divider;
     border-right: variables.$divider;
+    border-bottom: variables.$divider;
     padding-top: variables.$space-x-large;
 
     > nav {
