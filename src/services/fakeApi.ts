@@ -14,6 +14,13 @@ const fakeApi = {
     return { data: posts };
   },
 
+  async getPostById(id: number) {
+    const posts = this.posts();
+    const post = posts.find((item) => item.id === id) as PostProps;
+
+    return { data: post };
+  },
+
   // ? gets posts from users the logged user follows
   async getFollowingPosts(followingIds: number[]) {
     const posts = this.posts().filter((post) =>
@@ -27,7 +34,7 @@ const fakeApi = {
     text: string,
     userId: number,
     setPosts: React.Dispatch<React.SetStateAction<PostProps[]>>,
-    postId?: number
+    repostId?: number
   ) {
     const posts = this.posts();
     const id = posts[posts.length - 1].id + 1;
@@ -36,7 +43,7 @@ const fakeApi = {
       id,
       text,
       userId,
-      postId,
+      repostId,
     });
 
     localStorage.setItem("posterr-posts", JSON.stringify(posts));
