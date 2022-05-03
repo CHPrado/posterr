@@ -1,64 +1,52 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { AiOutlineRetweet } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 import { posterrContext } from "../../contexts";
-import usePosts from "../../hooks/usePosts";
-import { PostItem } from "../../interfaces";
+import { usePosts } from "../../hooks";
 import { fakeApi } from "../../services";
+import Post from "../Post/Post";
+
+import "./posts.scss";
 
 const Posts = () => {
   const { user, posts, setPosts } = useContext(posterrContext);
-  const { createPostList } = usePosts();
+  const { sortPostsByDateAsc } = usePosts();
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const [postList, setPostList] = useState<PostItem[]>([]);
 
   useEffect(() => {
     if (!user) return;
 
     if (isHome) {
       fakeApi.getPosts().then((response) => {
-        setPosts(response.data);
+        setPosts(sortPostsByDateAsc(response.data));
       });
     } else {
       fakeApi.getFollowingPosts(user.followingIds).then((response) => {
-        setPosts(response.data);
+        setPosts(sortPostsByDateAsc(response.data));
       });
     }
     //eslint-disable-next-line
   }, [user, isHome]);
 
-  useEffect(() => {
-    if (!posts || !posts.length) return;
-
-    async function asyncPostList() {
-      setPostList(await createPostList(posts));
-    }
-
-    asyncPostList();
-    // eslint-disable-next-line
-  }, [posts]);
-
   return (
-    <div>
-      {postList?.map((post) => {
-        return (
-          <div key={post.id}>
-            <img
-              src={post.user.avatar}
-              alt={`${post.user.id}-user-avatar-${post.id}`}
-              style={{ height: "40px" }}
-            />
-            <Link to={`/user/${post.user.id}`}>
-              <span>{post.user.name}</span>
-            </Link>
-
-            <p>{post.text}</p>
-            <p>{post.repost?.text}</p>
+    <div className="posts-wrapper">
+      {posts?.map((post) => (
+        <div className="post-wrapper">
+          <Post key={post.id} post={post} />
+          <div className="post-buttons-container">
+            <button>
+              <AiOutlineRetweet size={20} />
+            </button>
+            <button>
+              <FaRegEdit size={20} />
+            </button>
           </div>
-        );
-      })}
+        </div>
+      ))}
 
       <Outlet />
     </div>

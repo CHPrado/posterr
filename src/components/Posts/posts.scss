@@ -1,0 +1,34 @@
+@use "../../sass/variables";
+
+.posts-wrapper {
+  padding: variables.$space-medium;
+
+  > .post-wrapper {
+    border: variables.$divider;
+    background: variables.$color-card-background;
+    border-radius: variables.$space-small;
+    margin-bottom: variables.$space-small;
+
+    > .post-buttons-container {
+      display: flex;
+      justify-content: space-evenly;
+      padding: variables.$space-medium 0;
+
+      button {
+        display: flex;
+
+        border: none;
+        border-radius: 100%;
+        color: variables.$color-text-main;
+        background: variables.$color-card-background;
+        margin-left: variables.$space-small;
+        padding: variables.$space-small;
+
+        &:hover {
+          cursor: pointer;
+          background: variables.$color-active;
+        }
+      }
+    }
+  }
+}

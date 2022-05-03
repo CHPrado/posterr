@@ -52,11 +52,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-right: variables.$space-large;
+      padding-right: variables.$space-larger;
 
       > img {
         border-radius: 100%;
-        height: variables.$space-large;
+        height: variables.$space-larger;
       }
 
       > span {

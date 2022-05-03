@@ -1,15 +1,20 @@
 $color-background: #0e0e10;
+$color-card-background: #16181c;
+
+$color-border: #2f3336;
+$color-button-hover: #3b3b44;
+
 $color-active: #2979FF;
+$color-disabled: #EBEBE4;
+
 $color-text-main: #fff;
 $color-text-secondary: #71767b;
-$color-button-hover: #3b3b44;
-$color-border: #2f3336;
-$color-disabled: #EBEBE4;
 $color-text-disabled: #C6C6C6;
 
+$space-smaller: 4px;
 $space-small: 8px;
 $space-medium: 16px;
-$space-large: 32px;
-$space-x-large: 64px;
+$space-large: 24px;
+$space-larger: 32px;
 
 $divider: solid 1px $color-border;

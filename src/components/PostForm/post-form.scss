@@ -6,7 +6,7 @@
 
   > img {
     border-radius: 100%;
-    height: variables.$space-x-large;
+    height: calc(2 * variables.$space-larger);
   }
 
   .post-form-container {
@@ -17,9 +17,10 @@
       width: 100%;
       resize: vertical;
       overflow: auto;
-      font-size: variables.$space-medium;
-      min-height: variables.$space-x-large;
-      max-height: calc(variables.$space-x-large * 4);
+      font-family: inherit;
+      font-size: medium;
+      min-height: calc(2 * variables.$space-large);
+      max-height: calc(8 * variables.$space-large);
     }
 
     .post-form-button-container {
@@ -30,7 +31,8 @@
 
       > span {
         color: variables.$color-text-secondary;
-        margin-right: variables.$space-small;
+        padding-right: variables.$space-small;
+        border-right: variables.$divider;
         font-weight: bold;
       }
 
@@ -39,8 +41,9 @@
         font-weight: bold;
         color: variables.$color-text-main;
         background: variables.$color-active;
-        font-size: variables.$space-medium;
+        font-size: medium;
         border-radius: variables.$space-medium;
+        margin-left: variables.$space-small;
         padding: variables.$space-small;
 
         > span {

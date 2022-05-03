@@ -4,7 +4,7 @@ export interface PostProps {
   id: number;
   text?: string;
   userId: number;
-  postId?: number;
+  repostId?: number;
 }
 
 export interface PostItem extends PostProps {

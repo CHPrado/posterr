@@ -1,0 +1,84 @@
+@use "../../sass/variables";
+
+.post-card {
+  display: flex;
+  
+  .post-content-container {
+    display: flex;
+    width: 100%;
+    padding: variables.$space-medium;
+    padding-bottom: 0;
+
+    > img {
+      border-radius: 100%;
+      height: calc(2 * variables.$space-large);
+      margin-right: variables.$space-medium;
+    }
+  
+    a {
+      color: variables.$color-text-main;
+      text-decoration: none;
+
+      > span {
+        font-size: large;
+        font-weight: bold;
+      }
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    .post-info {
+      display: flex;
+      flex-direction: column;
+      
+      > .post-info-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: variables.$space-medium;
+
+        > a {
+          margin: 0 variables.$space-small variables.$space-small 0;
+        }
+      }
+  
+      > .sub-post-container {
+        border: variables.$divider;
+        border-radius: variables.$space-small;
+  
+        img {
+          height: variables.$space-large;
+        }
+      }
+    }
+  
+    .repost-info {
+      > .repost-info-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: variables.$space-medium;
+
+        > a {
+          display: flex;
+          
+            > span {
+            font-size: small;
+            margin: 0 variables.$space-small 0 variables.$space-small;
+          }
+        }
+    
+        > span {
+          font-size: small;
+          font-weight: bold;
+        }
+      }
+  
+      > .sub-post-container {
+        > img {
+          height: calc(2 * variables.$space-large);
+        }
+      }
+    }
+  }
+}
