@@ -1,8 +1,7 @@
-import { users } from "../database/fakedata.db";
-import { sortPostsByDateAsc } from "../helpers";
-import { PostProps, UserProps } from "../interfaces";
+import { sortPostsByDateAsc } from "../../../helpers";
+import { PostProps } from "../../../interfaces";
 
-const fakeApi = {
+const posts = {
   posts() {
     return JSON.parse(
       localStorage.getItem("posterr-posts") as string
@@ -50,11 +49,6 @@ const fakeApi = {
     localStorage.setItem("posterr-posts", JSON.stringify(posts));
     setPosts(sortPostsByDateAsc(posts));
   },
-
-  async getUserById(userId: number) {
-    const user = users.find((user) => user.id === userId) as UserProps;
-    return { data: user };
-  },
 };
 
-export default fakeApi;
+export default posts;

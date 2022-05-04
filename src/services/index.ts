@@ -1,1 +1,1 @@
-export { default as fakeApi } from "./fakeApi";
+export * as fakeApi from "./fakeApi";

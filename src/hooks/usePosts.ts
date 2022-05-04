@@ -7,12 +7,12 @@ function usePosts() {
     let postItem: PostItem;
     let repost: PostProps | undefined;
 
-    const user = await fakeApi
+    const user = await fakeApi.users
       .getUserById(post.userId)
       .then((response) => response.data);
 
     if (post.repostId) {
-      repost = await fakeApi
+      repost = await fakeApi.posts
         .getPostById(post.repostId)
         .then((response) => response.data);
     }

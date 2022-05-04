@@ -14,7 +14,7 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
   }
 
   function handlePostButtonClick() {
-    fakeApi
+    fakeApi.posts
       .createPost(contextUser.id, setContextPosts, text, repostId)
       .then(() => setText(""));
   }

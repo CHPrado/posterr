@@ -23,11 +23,11 @@ const Posts: FC<PostsParams> = ({ userId, userIds }) => {
   const [quotePost, setQuotePost] = useState<PostProps>();
 
   function handleRePostButtonClick(repostId: number) {
-    fakeApi.createPost(contextUser.id, setContextPosts, "", repostId);
+    fakeApi.posts.createPost(contextUser.id, setContextPosts, "", repostId);
   }
 
   function handleQuotePostButtonClick(repostId: number) {
-    fakeApi.getPostById(repostId).then((response) => {
+    fakeApi.posts.getPostById(repostId).then((response) => {
       setQuotePost(response.data);
       setModalOpen(true);
     });
@@ -35,11 +35,11 @@ const Posts: FC<PostsParams> = ({ userId, userIds }) => {
 
   useEffect(() => {
     if (userIds?.length) {
-      fakeApi.getPostsFromUsers(userIds).then((response) => {
+      fakeApi.posts.getPostsFromUsers(userIds).then((response) => {
         setPosts(response.data);
       });
     } else {
-      fakeApi.getPosts().then((response) => {
+      fakeApi.posts.getPosts().then((response) => {
         setPosts(response.data);
       });
     }
