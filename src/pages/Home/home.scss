@@ -7,7 +7,7 @@
   padding-top: variables.$space-larger;
 
   .home-content-container {
-    width: 500px;
+    width: variables.$content-container-width-medium;
     border-left: variables.$divider;
     border-right: variables.$divider;
     border-bottom: variables.$divider;

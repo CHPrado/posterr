@@ -1,11 +1,11 @@
-import React, { ChangeEvent, useContext, useState } from "react";
+import React, { ChangeEvent, FC, useContext, useState } from "react";
 
 import { posterrContext } from "../../contexts";
 import { fakeApi } from "../../services";
 
 import "./post-form.scss";
 
-const PostForm = () => {
+const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
   const { user, setPosts } = useContext(posterrContext);
   const [text, setText] = useState("");
 
@@ -14,7 +14,9 @@ const PostForm = () => {
   }
 
   function handlePostButtonClick() {
-    fakeApi.createPost(user.id, setPosts, text).then(() => setText(""));
+    fakeApi
+      .createPost(user.id, setPosts, text, repostId)
+      .then(() => setText(""));
   }
 
   return (

@@ -1,6 +1,8 @@
 import React, { FC, ReactNode, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
+import { disablePageScroll } from "../../helpers";
+
 import "./modal.scss";
 
 type ModalParams = {
@@ -11,8 +13,7 @@ type ModalParams = {
 
 const Modal: FC<ModalParams> = ({ open, setOpen, children }) => {
   function handleCloseModal() {
-    document.documentElement.style.overflow = "auto scroll";
-    document.documentElement.style.overscrollBehaviorY = "none";
+    disablePageScroll(false);
     setOpen(false);
   }
 
@@ -21,8 +22,7 @@ const Modal: FC<ModalParams> = ({ open, setOpen, children }) => {
   }
 
   useEffect(() => {
-    document.documentElement.style.overflow = "hidden";
-    document.documentElement.style.overscrollBehaviorY = "none";
+    disablePageScroll(true);
   }, []);
 
   return (

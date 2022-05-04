@@ -32,3 +32,10 @@
     }
   }
 }
+
+.modal-quote-post-container {
+  border: variables.$divider;
+  background: variables.$color-card-background;
+  border-radius: variables.$space-small;
+  padding-bottom: variables.$space-medium;
+}
