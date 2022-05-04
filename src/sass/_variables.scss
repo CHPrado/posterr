@@ -1,4 +1,5 @@
 $color-background: #0e0e10;
+$color-modal-background: rgba(91, 112, 131, 0.4);
 $color-card-background: #16181c;
 
 $color-border: #2f3336;
@@ -17,4 +18,8 @@ $space-medium: 16px;
 $space-large: 24px;
 $space-larger: 32px;
 
+$border-radius: $space-small;
+
 $divider: solid 1px $color-border;
+$content-container-width-small: 450px;
+$content-container-width-medium: 500px

@@ -1,0 +1,48 @@
+@use "../../sass/variables";
+
+.modal-wrapper-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: variables.$color-modal-background;
+
+  > .modal-frame {
+    min-width: variables.$content-container-width-medium;
+    border-radius: variables.$border-radius;
+    background: variables.$color-background;
+
+    > .modal-header {
+      padding: variables.$space-small;
+
+      > button {
+        display: flex;
+
+        border: none;
+        border-radius: 100%;
+        color: variables.$color-text-main;
+        background: variables.$color-background;
+        padding: variables.$space-small;
+
+        &:hover {
+          cursor: pointer;
+          background: variables.$color-button-hover;
+        }
+      }
+    }
+
+    > .modal-content {
+      padding: variables.$space-small;
+    }
+  }
+}
+
+.modal-wrapper-close {
+  display: none;
+}
