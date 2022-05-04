@@ -2,11 +2,11 @@ import { createContext } from "react";
 
 import { PostProps, UserProps } from "../interfaces";
 
-interface PosterContext {
-  user: UserProps;
-  posts: PostProps[];
-  setUser: React.Dispatch<React.SetStateAction<UserProps>>;
-  setPosts: React.Dispatch<React.SetStateAction<PostProps[]>>;
+interface PosterrContext {
+  contextUser: UserProps;
+  contexPosts: PostProps[];
+  setContextUser: React.Dispatch<React.SetStateAction<UserProps>>;
+  setContextPosts: React.Dispatch<React.SetStateAction<PostProps[]>>;
 }
 
 const defaultUser: UserProps = {
@@ -17,13 +17,13 @@ const defaultUser: UserProps = {
   followingIds: [],
 };
 
-const defaultValues = {
-  user: defaultUser,
-  posts: [],
-  setUser: () => {},
-  setPosts: () => {},
+const defaultValues: PosterrContext = {
+  contextUser: defaultUser,
+  contexPosts: [],
+  setContextUser: () => {},
+  setContextPosts: () => {},
 };
 
-const posterrContext = createContext<PosterContext>(defaultValues);
+const posterrContext = createContext<PosterrContext>(defaultValues);
 
 export default posterrContext;

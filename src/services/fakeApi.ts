@@ -22,10 +22,10 @@ const fakeApi = {
     return { data: post };
   },
 
-  // ? gets posts from users the logged user follows
-  async getFollowingPosts(followingIds: number[]) {
+  // ? gets posts from multiple users
+  async getPostsFromUsers(userIds: number[]) {
     const posts = sortPostsByDateAsc(this.posts()).filter((post) =>
-      followingIds.includes(post.userId)
+      userIds.includes(post.userId)
     );
 
     return { data: posts };

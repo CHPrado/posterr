@@ -6,7 +6,7 @@ import { fakeApi } from "../../services";
 import "./post-form.scss";
 
 const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
-  const { user, setPosts } = useContext(posterrContext);
+  const { contextUser, setContextPosts } = useContext(posterrContext);
   const [text, setText] = useState("");
 
   function handleTextChange(event: ChangeEvent<HTMLTextAreaElement>) {
@@ -15,13 +15,13 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
 
   function handlePostButtonClick() {
     fakeApi
-      .createPost(user.id, setPosts, text, repostId)
+      .createPost(contextUser.id, setContextPosts, text, repostId)
       .then(() => setText(""));
   }
 
   return (
     <div className="post-form-wrapper">
-      <img src={user.avatar} alt={`${user.id}-user-avatar`} />
+      <img src={contextUser.avatar} alt={`${contextUser.id}-user-avatar`} />
 
       <div className="post-form-container">
         <textarea

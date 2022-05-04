@@ -8,11 +8,14 @@ import "./modal.scss";
 type ModalParams = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onClose?: () => void;
   children?: ReactNode;
 };
 
-const Modal: FC<ModalParams> = ({ open, setOpen, children }) => {
+const Modal: FC<ModalParams> = ({ open, setOpen, onClose, children }) => {
   function handleCloseModal() {
+    if (onClose) onClose();
+
     disablePageScroll(false);
     setOpen(false);
   }

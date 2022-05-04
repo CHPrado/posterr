@@ -7,7 +7,7 @@ import { posterrContext } from "../../contexts";
 import "./header.scss";
 
 const Header = () => {
-  const { user } = useContext(posterrContext);
+  const { contextUser } = useContext(posterrContext);
 
   return (
     <div className="header-wrapper">
@@ -19,15 +19,15 @@ const Header = () => {
             <FaHome size={24} />
             <span>Home</span>
           </Link>
-          <Link to={`/user/${user.id}`}>
+          <Link to={`/user/${contextUser.id}`}>
             <FaUser size={24} />
             <span>Profile</span>
           </Link>
         </div>
 
         <div className="header-user-container">
-          <img src={user.avatar} alt={"logged-user-avatar"} />
-          <span>{user.name}</span>
+          <img src={contextUser.avatar} alt={"logged-user-avatar"} />
+          <span>{contextUser.name}</span>
         </div>
       </div>
     </div>

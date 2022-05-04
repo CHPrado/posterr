@@ -1,0 +1,28 @@
+@use "../../sass/variables";
+
+.user-page-wrapper {
+  .user-data-container {
+    display: flex;
+    padding: variables.$space-medium;
+
+    > img {
+      border-radius: 100%;
+      height: calc(5 * variables.$space-larger);
+    }
+
+    > .user-data {
+      display: flex;
+      flex-direction: column;
+      padding: variables.$space-large;
+    }
+  }
+
+  > .modal-wrapper-open {
+    display: flex;
+    justify-content: center;
+
+    > .modal-frame {
+      position: unset;
+    }
+  }
+}

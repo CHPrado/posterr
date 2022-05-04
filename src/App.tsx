@@ -6,12 +6,12 @@ import { useData } from "./hooks";
 import Router from "./routes";
 
 function App() {
-  const { setUser, setPosts } = useContext(posterrContext);
+  const { setContextUser, setContextPosts } = useContext(posterrContext);
   const { loggin, loadPosts } = useData();
 
   useEffect(() => {
-    loggin(setUser);
-    loadPosts(setPosts);
+    loggin(setContextUser);
+    loadPosts(setContextPosts);
     // eslint-disable-next-line
   }, []);
 

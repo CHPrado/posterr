@@ -7,23 +7,24 @@
   width: 100%;
   height: 100%;
   z-index: 100;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: variables.$color-modal-background;
+  overflow: hidden;
 
   > .modal-frame {
-    min-width: variables.$content-container-width-medium;
+    position: relative;
+    top: calc(variables.$space-larger * 2);
+    left: calc(50% - (variables.$content-container-width-medium / 2));
+    width: variables.$content-container-width-medium;
     border-radius: variables.$border-radius;
     background: variables.$color-background;
+    display: flex;
+    flex-direction: column;
 
     > .modal-header {
       padding: variables.$space-small;
 
       > button {
         display: flex;
-
         border: none;
         border-radius: 100%;
         color: variables.$color-text-main;
@@ -38,6 +39,7 @@
     }
 
     > .modal-content {
+      overflow: auto;
       padding: variables.$space-small;
     }
   }
