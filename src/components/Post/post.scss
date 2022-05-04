@@ -2,7 +2,7 @@
 
 .post-card {
   display: flex;
-  
+
   .post-content-container {
     display: flex;
     width: 100%;
@@ -14,7 +14,7 @@
       height: calc(2 * variables.$space-large);
       margin-right: variables.$space-medium;
     }
-  
+
     a {
       color: variables.$color-text-main;
       text-decoration: none;
@@ -23,15 +23,16 @@
         font-size: large;
         font-weight: bold;
       }
-  
+
       &:hover {
         text-decoration: underline;
       }
     }
-  
+
     .post-info {
       display: flex;
       flex-direction: column;
+      width: 100%;
       
       > .post-info-container {
         display: flex;
@@ -42,18 +43,20 @@
           margin: 0 variables.$space-small variables.$space-small 0;
         }
       }
-  
+
       > .sub-post-container {
         border: variables.$divider;
         border-radius: variables.$space-small;
-  
+
         img {
           height: variables.$space-large;
         }
       }
     }
-  
+
     .repost-info {
+      width: 100%;
+
       > .repost-info-container {
         display: flex;
         align-items: center;
@@ -73,12 +76,17 @@
           font-weight: bold;
         }
       }
-  
+
       > .sub-post-container {
         > img {
           height: calc(2 * variables.$space-large);
         }
+
+        > .post-card > .post-content-container {
+          padding: 0;
+        }
       }
+
     }
   }
 }

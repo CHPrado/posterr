@@ -12,7 +12,7 @@
     > .post-buttons-container {
       display: flex;
       justify-content: space-evenly;
-      padding: variables.$space-medium 0;
+      padding: variables.$space-small 0 variables.$space-medium 0;
 
       button {
         display: flex;
