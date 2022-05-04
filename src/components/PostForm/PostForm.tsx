@@ -14,7 +14,7 @@ const PostForm = () => {
   }
 
   function handlePostButtonClick() {
-    fakeApi.createPost(text, user.id, setPosts).then(() => setText(""));
+    fakeApi.createPost(user.id, setPosts, text).then(() => setText(""));
   }
 
   return (

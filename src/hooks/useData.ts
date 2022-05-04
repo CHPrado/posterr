@@ -1,4 +1,4 @@
-import { posts as defaultPosts, users } from "../helpers/fakedata.db";
+import { posts as defaultPosts, users } from "../database/fakedata.db";
 import { PostProps, UserProps } from "../interfaces";
 
 function useData() {

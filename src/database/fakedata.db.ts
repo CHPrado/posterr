@@ -1,4 +1,7 @@
+import billGatesAvatar from "../assets/bill_gates_avatar.png";
 import profileAvatar from "../assets/default_profile_avatar.png";
+import elonMuskAvatar from "../assets/elon_musk_avatar.png";
+import markZuckerbergAvatar from "../assets/mark_zuckerberg_avatar.png";
 import { PostProps, UserProps } from "../interfaces";
 
 const users: UserProps[] = [
@@ -6,27 +9,27 @@ const users: UserProps[] = [
     id: 1,
     name: "Amazing User Name",
     avatar: profileAvatar,
-    followingIds: [2],
+    followingIds: [2, 3],
     followersIds: [],
   },
   {
     id: 2,
     name: "Elon Musk",
-    avatar: profileAvatar,
+    avatar: elonMuskAvatar,
     followingIds: [],
     followersIds: [],
   },
   {
     id: 3,
     name: "Bill Gates",
-    avatar: profileAvatar,
+    avatar: billGatesAvatar,
     followingIds: [],
     followersIds: [],
   },
   {
     id: 4,
     name: "Mark Zuckerberg",
-    avatar: profileAvatar,
+    avatar: markZuckerbergAvatar,
     followingIds: [],
     followersIds: [],
   },

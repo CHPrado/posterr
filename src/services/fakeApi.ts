@@ -1,4 +1,5 @@
-import { users } from "../helpers/fakedata.db";
+import { users } from "../database/fakedata.db";
+import { sortPostsByDateAsc } from "../helpers";
 import { PostProps, UserProps } from "../interfaces";
 
 const fakeApi = {
@@ -9,7 +10,7 @@ const fakeApi = {
   },
 
   async getPosts() {
-    const posts = this.posts();
+    const posts = sortPostsByDateAsc(this.posts());
 
     return { data: posts };
   },
@@ -23,7 +24,7 @@ const fakeApi = {
 
   // ? gets posts from users the logged user follows
   async getFollowingPosts(followingIds: number[]) {
-    const posts = this.posts().filter((post) =>
+    const posts = sortPostsByDateAsc(this.posts()).filter((post) =>
       followingIds.includes(post.userId)
     );
 
@@ -31,9 +32,9 @@ const fakeApi = {
   },
 
   async createPost(
-    text: string,
     userId: number,
     setPosts: React.Dispatch<React.SetStateAction<PostProps[]>>,
+    text?: string,
     repostId?: number
   ) {
     const posts = this.posts();
@@ -47,7 +48,7 @@ const fakeApi = {
     });
 
     localStorage.setItem("posterr-posts", JSON.stringify(posts));
-    setPosts(posts);
+    setPosts(sortPostsByDateAsc(posts));
   },
 
   async getUserById(userId: number) {

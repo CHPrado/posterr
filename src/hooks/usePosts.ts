@@ -2,11 +2,6 @@ import { PostItem, PostProps } from "../interfaces";
 import { fakeApi } from "../services";
 
 function usePosts() {
-  function sortPostsByDateAsc(posts: PostProps[]) {
-    // TODO update id to date when implemented
-    return posts.sort((a, b) => b.id - a.id);
-  }
-
   // ? creates a postItem with user and repost information
   async function createPostItem(post: PostProps) {
     let postItem: PostItem;
@@ -38,7 +33,7 @@ function usePosts() {
     return postItem;
   }
 
-  return { createPostItem, sortPostsByDateAsc };
+  return { createPostItem };
 }
 
 export default usePosts;
