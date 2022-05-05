@@ -1,5 +1,6 @@
-import React, { ChangeEvent, FC, useContext, useState } from "react";
+import React, { ChangeEvent, FC, useContext, useEffect, useState } from "react";
 
+import { USER_DAILY_POSTS_LIMIT } from "../../constants";
 import { posterrContext } from "../../contexts";
 import { fakeApi } from "../../services";
 
@@ -9,6 +10,7 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
   const { contextUser, setContextUser, setContextUsers, setContextPosts } =
     useContext(posterrContext);
   const [text, setText] = useState("");
+  const [isDayPostsLimitExceeded, setIsDayPostsLimitExceeded] = useState(false);
 
   function handleTextChange(event: ChangeEvent<HTMLTextAreaElement>) {
     setText(event.target.value);
@@ -29,6 +31,19 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
       });
   }
 
+  useEffect(() => {
+    const filter = {
+      userIds: [contextUser.id],
+      posted: new Date(),
+    };
+    fakeApi.posts.list(filter).then((response) => {
+      setIsDayPostsLimitExceeded(
+        response.data.length >= USER_DAILY_POSTS_LIMIT
+      );
+    });
+    // eslint-disable-next-line
+  }, [contextUser]);
+
   return (
     <div className="post-form-wrapper">
       <img src={contextUser.avatar} alt={`${contextUser.id}-user-avatar`} />
@@ -40,14 +55,21 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
           maxLength={777}
           value={text}
           onChange={handleTextChange}
+          disabled={isDayPostsLimitExceeded}
         />
+
+        {isDayPostsLimitExceeded && (
+          <span className="post-limit-warn">
+            You exceeded the maximum amount of posts for the day. Try again
+            tomorrow
+          </span>
+        )}
 
         <div className="post-form-button-container">
           <span>{text.length}/777</span>
           <button
-            className={!text.length ? "disabled-button" : ""}
             onClick={handlePostButtonClick}
-            disabled={!text.length}
+            disabled={!text.length || isDayPostsLimitExceeded}
           >
             <span>Post</span>
           </button>

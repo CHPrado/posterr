@@ -43,7 +43,7 @@ const Posts: FC<PostsParams> = ({ userIds }) => {
   }
 
   function handleQuotePostButtonClick(repostId: number) {
-    fakeApi.posts.getPostById(repostId).then((response) => {
+    fakeApi.posts.get(repostId).then((response) => {
       setQuotePost(response.data);
       setModalOpen(true);
     });
@@ -51,11 +51,12 @@ const Posts: FC<PostsParams> = ({ userIds }) => {
 
   useEffect(() => {
     if (isHome) {
-      fakeApi.posts.getPosts().then((response) => {
+      fakeApi.posts.list().then((response) => {
         setPosts(response.data);
       });
     } else {
-      fakeApi.posts.getPostsFromUsers(userIds!).then((response) => {
+      const filter = { userIds: userIds! };
+      fakeApi.posts.list(filter).then((response) => {
         setPosts(response.data);
       });
     }

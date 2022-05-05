@@ -1,3 +1,5 @@
+import { isSameDay } from "date-fns";
+
 import { sortPostsByDateAsc } from "../../../helpers";
 import { PostProps } from "../../../interfaces";
 
@@ -8,26 +10,27 @@ const posts = {
     ) as PostProps[];
   },
 
-  async getPosts() {
-    const posts = sortPostsByDateAsc(this.posts());
+  async list(filter?: { userIds?: number[]; posted?: Date }) {
+    let posts = sortPostsByDateAsc(this.posts());
+
+    if (filter?.userIds) {
+      posts = posts.filter((post) => filter.userIds?.includes(post.userId));
+    }
+
+    if (filter?.posted) {
+      posts = posts.filter((post) =>
+        isSameDay(filter.posted!, new Date(post.createdAt))
+      );
+    }
 
     return { data: posts };
   },
 
-  async getPostById(id: number) {
+  async get(id: number) {
     const posts = this.posts();
     const post = posts.find((item) => item.id === id) as PostProps;
 
     return { data: post };
-  },
-
-  // ? gets posts from multiple users
-  async getPostsFromUsers(userIds: number[]) {
-    const posts = sortPostsByDateAsc(this.posts()).filter((post) =>
-      userIds.includes(post.userId)
-    );
-
-    return { data: posts };
   },
 
   async create(

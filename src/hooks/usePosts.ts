@@ -8,12 +8,12 @@ function usePosts() {
     let repost: PostProps | undefined;
 
     const user = await fakeApi.users
-      .getUserById(post.userId)
+      .get(post.userId)
       .then((response) => response.data);
 
     if (post.repostId) {
       repost = await fakeApi.posts
-        .getPostById(post.repostId)
+        .get(post.repostId)
         .then((response) => response.data);
     }
 

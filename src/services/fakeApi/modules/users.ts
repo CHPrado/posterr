@@ -27,7 +27,7 @@ const users = {
     setUsers(users);
   },
 
-  async getUserById(userId: number) {
+  async get(userId: number) {
     const users = this.users();
 
     const user = users.find((user) => user.id === userId) as UserProps;

@@ -45,7 +45,7 @@ const User = () => {
   useEffect(() => {
     if (!contextUser || !id) return;
     fakeApi.users
-      .getUserById(Number(id))
+      .get(Number(id))
       .then((response) => setProfileUser(response.data));
   }, [id, contextUser]);
 

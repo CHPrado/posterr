@@ -23,6 +23,10 @@
       max-height: calc(8 * variables.$space-large);
     }
 
+    > .post-limit-warn {
+      color: variables.$color-warn
+    }
+
     .post-form-button-container {
       display: flex;
       justify-content: flex-end;
@@ -54,17 +58,17 @@
           cursor: pointer;
           opacity: 0.85;
         }
-      };
 
-      .disabled-button {
-        color: variables.$color-text-disabled;
-        background: variables.$color-disabled;
+        &:disabled {
+          color: variables.$color-text-disabled;
+          background: variables.$color-disabled;
 
         &:hover {
           cursor: auto;
           opacity: 1;
         }
-      }
+        }
+      };
     }
   }
 }
