@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { format } from "date-fns";
+
 import { Modal, PostForm, Posts } from "../../components";
 import { posterrContext } from "../../contexts";
 import { UserProps } from "../../interfaces";
@@ -69,7 +71,10 @@ const User = () => {
 
                 <div className="user-info-container">
                   <span className="user-info-description">
-                    Joined "March 25, 2021"
+                    {`Joined ${format(
+                      new Date(profileUser.createdAt),
+                      "MMM d, yyyy"
+                    )}`}
                   </span>
                 </div>
 
