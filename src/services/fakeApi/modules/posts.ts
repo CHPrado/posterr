@@ -44,6 +44,7 @@ const posts = {
       text,
       userId,
       repostId,
+      createdAt: new Date(),
     });
 
     localStorage.setItem("posterr-posts", JSON.stringify(posts));

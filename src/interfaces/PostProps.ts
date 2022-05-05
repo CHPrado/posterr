@@ -5,6 +5,7 @@ export interface PostProps {
   text?: string;
   userId: number;
   repostId?: number;
+  createdAt: Date;
 }
 
 export interface PostItem extends PostProps {

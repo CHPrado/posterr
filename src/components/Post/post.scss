@@ -29,6 +29,13 @@
       }
     }
 
+    .post-info-date {
+      font-size: small;
+      font-weight: normal !important;
+      color: variables.$color-text-secondary;
+      margin-left: variables.$space-smaller;
+    }
+
     .post-info {
       display: flex;
       flex-direction: column;
@@ -39,7 +46,9 @@
         flex-direction: column;
         margin-bottom: variables.$space-medium;
 
-        > a {
+        > div {
+          display: flex;
+          align-items: center;
           margin: 0 variables.$space-small variables.$space-small 0;
         }
       }
@@ -50,6 +59,10 @@
 
         img {
           height: variables.$space-large;
+        }
+
+        .post-info-date {
+          display: none;
         }
       }
     }
@@ -85,8 +98,11 @@
         > .post-card > .post-content-container {
           padding: 0;
         }
-      }
 
+        .post-info-date {
+          display: none;
+        }
+      }
     }
   }
 }

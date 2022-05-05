@@ -26,6 +26,7 @@ function usePosts() {
             text: repost?.text,
             userId: repost?.userId,
             repostId: !post.text ? repost.repostId : undefined,
+            createdAt: repost.createdAt,
           }
         : undefined,
     };
