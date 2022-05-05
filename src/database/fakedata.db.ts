@@ -7,7 +7,7 @@ import { PostProps, UserProps } from "../interfaces";
 const users: UserProps[] = [
   {
     id: 1,
-    name: "Amazing User Name",
+    name: "Amazing User",
     avatar: profileAvatar,
     followingIds: [],
     followersIds: [],

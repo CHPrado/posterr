@@ -57,25 +57,55 @@ const User = () => {
     <div className="user-page-wrapper">
       {modalOpen && (
         <Modal open={modalOpen} setOpen={setModalOpen} onClose={onModalClose}>
-          <div className="user-data-container">
+          <div className="user-page-container">
             <img
               src={profileUser?.avatar}
               alt={`${profileUser?.id}-user-avatar`}
             />
 
-            <div className="user-data">
-              <span>{profileUser?.name}</span>
-              <span>Followers: {profileUser?.followersIds.length}</span>
-              <span>Following: {profileUser?.followingIds.length}</span>
+            <div className="user-data-container">
+              <div className="user-data-container-2">
+                <span className="user-name">{profileUser?.name}</span>
+
+                <div className="user-info-container">
+                  <span className="user-info-description">
+                    Joined "March 25, 2021"
+                  </span>
+                </div>
+
+                <div className="user-info-container">
+                  <span className="user-info-value">
+                    {profileUser?.followingIds.length}
+                  </span>
+                  <span className="user-info-description">Following</span>
+                  <span className="user-info-value">
+                    {profileUser?.followersIds.length}
+                  </span>
+                  <span className="user-info-description">Followers</span>
+                </div>
+
+                <div className="user-info-container">
+                  <span className="user-info-value">999</span>
+                  <span className="user-info-description">Total posts</span>
+                </div>
+              </div>
 
               {!isLoggedUser && (
                 <div className="user-buttons-container">
                   {contextUser.followingIds?.includes(profileUser.id) ? (
-                    <button onClick={handleUnfollowButtonClick}>
-                      Following
+                    <button
+                      className="user-buttons-unfollow"
+                      onClick={handleUnfollowButtonClick}
+                    >
+                      <span>Following</span>
                     </button>
                   ) : (
-                    <button onClick={handleFollowButtonClick}>Follow</button>
+                    <button
+                      className="user-buttons-follow"
+                      onClick={handleFollowButtonClick}
+                    >
+                      Follow
+                    </button>
                   )}
                 </div>
               )}
@@ -87,7 +117,10 @@ const User = () => {
               <PostForm />
             </div>
           )}
-          <Posts userIds={[profileUser.id]} />
+
+          <div className="user-posts-container">
+            <Posts userIds={[profileUser.id]} />
+          </div>
         </Modal>
       )}
     </div>

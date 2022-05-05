@@ -1,7 +1,7 @@
 @use "../../sass/variables";
 
 .user-page-wrapper {
-  .user-data-container {
+  .user-page-container {
     display: flex;
     padding: variables.$space-medium;
 
@@ -10,19 +10,95 @@
       height: calc(5 * variables.$space-larger);
     }
 
-    > .user-data {
+    > .user-data-container {
       display: flex;
       flex-direction: column;
-      padding: variables.$space-large;
+      justify-content: space-between;
+      padding: variables.$space-large variables.$space-large 0;
+
+      > .user-data-container-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        > .user-name {
+          font-size: xx-large;
+          font-weight: bolder;
+          padding-bottom: variables.$space-small;
+        }
+
+        .user-info-value {
+          font-weight: bold;
+          margin-right: variables.$space-smaller;
+        }
+
+        .user-info-description {
+          margin-right: variables.$space-medium;
+          color: variables.$color-text-secondary
+        }
+  
+        > .user-info-container {
+          display: flex;
+          margin-top: variables.$space-smaller;
+          margin-bottom: variables.$space-smaller;
+        }
+      }
+
+      > .user-buttons-container {
+        padding-top: variables.$space-small;
+
+        button {
+          width: 110px;
+          border: none;
+          font-weight: bold;
+          font-size: medium;
+          color: variables.$color-text-main;
+          border-radius: variables.$space-medium;
+          padding: variables.$space-small;
+
+          span {
+            padding: 0 variables.$space-small;
+          }
+
+          &:hover {
+            cursor: pointer;
+            opacity: 0.85;
+          }
+        }
+
+        > .user-buttons-follow {
+          background: variables.$color-active;
+        }
+
+        > .user-buttons-unfollow {
+          background: variables.$color-button;
+
+          &:hover {
+            color: variables.$color-alert;
+            border: solid 1px variables.$color-alert;
+            background: none;
+          }
+
+          &:hover span {
+            display: none;
+          }
+
+          &:hover:before {
+            content: "Unfollow";
+          }
+        }
+      }
     }
   }
 
   .user-post-form-container {
-    border-bottom: variables.$divider;
-
     img {
       display: none;
     }
+  }
+
+  .user-posts-container {
+    border-top: variables.$divider;
   }
 
   > .modal-wrapper-open {
