@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { VscCalendar } from "react-icons/vsc";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { format } from "date-fns";
@@ -42,7 +43,7 @@ const User = () => {
   }
 
   useEffect(() => {
-    if (!contextUser) return;
+    if (!contextUser || !id) return;
     fakeApi.users
       .getUserById(Number(id))
       .then((response) => setProfileUser(response.data));
@@ -72,7 +73,8 @@ const User = () => {
 
                 <div className="user-info-container">
                   <span className="user-info-description">
-                    {`Joined ${format(
+                    <VscCalendar />
+                    {` Joined ${format(
                       new Date(profileUser.createdAt),
                       "MMM d, yyyy"
                     )}`}

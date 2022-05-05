@@ -44,7 +44,7 @@ const Post: FC<{ post: PostProps }> = ({ post }) => {
             <div className="post-info-container">
               <div>
                 <LinkToUserPage postItem={postItem!} />
-                <span className="post-info-date">{`· ${format(
+                <span className="post-info-date">{`• ${format(
                   new Date(postItem.createdAt),
                   "MMM d, yyyy"
                 )}`}</span>
@@ -56,7 +56,7 @@ const Post: FC<{ post: PostProps }> = ({ post }) => {
               <AiOutlineRetweet size={20} />
               <LinkToUserPage postItem={postItem!} />
               <span>Reposted</span>
-              <span className="post-info-date">{`· ${format(
+              <span className="post-info-date">{`• ${format(
                 new Date(postItem.createdAt),
                 "MMM d, yyyy"
               )}`}</span>

@@ -33,8 +33,14 @@
         }
 
         .user-info-description {
+          display: flex;
+          align-items: center;
           margin-right: variables.$space-medium;
-          color: variables.$color-text-secondary
+          color: variables.$color-text-secondary;
+
+          > svg {
+            margin-right: variables.$space-smaller;
+          }
         }
   
         > .user-info-container {
