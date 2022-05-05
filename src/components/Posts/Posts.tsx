@@ -70,23 +70,31 @@ const Posts: FC<PostsParams> = ({ userIds }) => {
   return (
     <>
       <div className="posts-wrapper">
-        {posts?.map((post) => {
-          const repostId = post.text ? post.id : post.repostId!;
+        {posts.length ? (
+          <>
+            {posts.map((post) => {
+              const repostId = post.text ? post.id : post.repostId!;
 
-          return (
-            <div key={post.id} className="post-wrapper">
-              <Post post={post} />
-              <div className="post-buttons-container">
-                <button onClick={() => handleRePostButtonClick(repostId)}>
-                  <AiOutlineRetweet size={20} />
-                </button>
-                <button onClick={() => handleQuotePostButtonClick(repostId)}>
-                  <FaRegEdit size={20} />
-                </button>
-              </div>
-            </div>
-          );
-        })}
+              return (
+                <div key={post.id} className="post-wrapper">
+                  <Post post={post} />
+                  <div className="post-buttons-container">
+                    <button onClick={() => handleRePostButtonClick(repostId)}>
+                      <AiOutlineRetweet size={20} />
+                    </button>
+                    <button
+                      onClick={() => handleQuotePostButtonClick(repostId)}
+                    >
+                      <FaRegEdit size={20} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </>
+        ) : (
+          <h2>No posts to show</h2>
+        )}
       </div>
 
       {modalOpen && quotePost && (

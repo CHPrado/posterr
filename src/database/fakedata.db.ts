@@ -58,7 +58,7 @@ const posts: PostProps[] = [
     text: "Elon Musk second post",
     userId: 2,
     repostId: undefined,
-    createdAt: new Date(20010, 11, 25),
+    createdAt: new Date(2010, 11, 25),
   },
   {
     id: 3,
