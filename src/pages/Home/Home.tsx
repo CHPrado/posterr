@@ -32,7 +32,7 @@ const Home = () => {
             </Link>
           </nav>
 
-          <Outlet />
+          <Outlet context={{ isHome }} />
         </div>
       </div>
     </div>

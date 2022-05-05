@@ -1,6 +1,7 @@
 import React, { FC, useContext, useEffect, useState } from "react";
 import { AiOutlineRetweet } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
+import { useOutletContext } from "react-router-dom";
 
 import { Modal, Post, PostForm } from "../../components";
 import { posterrContext } from "../../contexts";
@@ -11,13 +12,13 @@ import { fakeApi } from "../../services";
 import "./posts.scss";
 
 type PostsParams = {
-  userId: UserProps["id"];
   userIds?: UserProps["id"][];
 };
 
-const Posts: FC<PostsParams> = ({ userId, userIds }) => {
+const Posts: FC<PostsParams> = ({ userIds }) => {
   const { contextUser, contextPosts, setContextPosts } =
     useContext(posterrContext);
+  const { isHome } = useOutletContext<{ isHome: boolean }>();
   const [posts, setPosts] = useState(contextPosts);
   const [modalOpen, setModalOpen] = useState(false);
   const [quotePost, setQuotePost] = useState<PostProps>();
@@ -34,17 +35,17 @@ const Posts: FC<PostsParams> = ({ userId, userIds }) => {
   }
 
   useEffect(() => {
-    if (userIds?.length) {
-      fakeApi.posts.getPostsFromUsers(userIds).then((response) => {
+    if (isHome) {
+      fakeApi.posts.getPosts().then((response) => {
         setPosts(response.data);
       });
     } else {
-      fakeApi.posts.getPosts().then((response) => {
+      fakeApi.posts.getPostsFromUsers(userIds!).then((response) => {
         setPosts(response.data);
       });
     }
     //eslint-disable-next-line
-  }, [userIds, contextPosts]);
+  }, [userIds, contextPosts, isHome]);
 
   useEffect(() => {
     disablePageScroll(false);

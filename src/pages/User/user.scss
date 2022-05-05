@@ -17,6 +17,14 @@
     }
   }
 
+  .user-post-form-container {
+    border-bottom: variables.$divider;
+
+    img {
+      display: none;
+    }
+  }
+
   > .modal-wrapper-open {
     display: flex;
     justify-content: center;

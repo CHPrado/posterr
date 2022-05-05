@@ -9,7 +9,7 @@ const users: UserProps[] = [
     id: 1,
     name: "Amazing User Name",
     avatar: profileAvatar,
-    followingIds: [2, 3],
+    followingIds: [],
     followersIds: [],
   },
   {
@@ -35,8 +35,8 @@ const users: UserProps[] = [
   },
 ];
 
-// ? posts with repostId and no text is considered a repost;
-// ? posts with repostId and text is considered a quote-post;
+// ? posts with repostId and no text are considered reposts;
+// ? posts with repostId and text are considered quote-posts;
 const posts: PostProps[] = [
   {
     id: 1,

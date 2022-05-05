@@ -11,16 +11,11 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />}>
-        <Route path="/" element={<Posts userId={contextUser.id} />} />
+        <Route path="/" element={<Posts />} />
         {contextUser.followingIds && (
           <Route
             path="/following"
-            element={
-              <Posts
-                userId={contextUser.id}
-                userIds={contextUser.followingIds}
-              />
-            }
+            element={<Posts userIds={contextUser.followingIds} />}
           />
         )}
         <Route path="/user/:id" element={<User />} />
