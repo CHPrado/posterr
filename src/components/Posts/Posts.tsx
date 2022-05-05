@@ -16,15 +16,30 @@ type PostsParams = {
 };
 
 const Posts: FC<PostsParams> = ({ userIds }) => {
-  const { contextUser, contextPosts, setContextPosts } =
-    useContext(posterrContext);
+  const {
+    contextUser,
+    setContextUser,
+    setContextUsers,
+    contextPosts,
+    setContextPosts,
+  } = useContext(posterrContext);
   const { isHome } = useOutletContext<{ isHome: boolean }>();
   const [posts, setPosts] = useState(contextPosts);
   const [modalOpen, setModalOpen] = useState(false);
   const [quotePost, setQuotePost] = useState<PostProps>();
 
   function handleRePostButtonClick(repostId: number) {
-    fakeApi.posts.createPost(contextUser.id, setContextPosts, "", repostId);
+    fakeApi.posts
+      .create(contextUser.id, setContextPosts, "", repostId)
+      .then(() => {
+        const params = { totalPosts: contextUser.totalPosts + 1 };
+        fakeApi.users.update(
+          contextUser.id,
+          setContextUser,
+          setContextUsers,
+          params
+        );
+      });
   }
 
   function handleQuotePostButtonClick(repostId: number) {

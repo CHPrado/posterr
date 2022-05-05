@@ -5,4 +5,5 @@ export interface UserProps {
   createdAt: Date;
   followingIds: number[];
   followersIds: number[];
+  totalPosts: number;
 }

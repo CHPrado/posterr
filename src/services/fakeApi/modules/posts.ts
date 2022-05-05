@@ -30,7 +30,7 @@ const posts = {
     return { data: posts };
   },
 
-  async createPost(
+  async create(
     userId: number,
     setPosts: React.Dispatch<React.SetStateAction<PostProps[]>>,
     text?: string,

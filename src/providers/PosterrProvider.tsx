@@ -11,6 +11,7 @@ const PosterrProvider: FC<{ children: ReactNode }> = ({ children }) => {
     createdAt: new Date(),
     followersIds: [],
     followingIds: [],
+    totalPosts: 0,
   };
   const [contextUser, setContextUser] = useState<UserProps>(defaultUser);
   const [contextUsers, setContextUsers] = useState<UserProps[]>([]);

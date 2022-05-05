@@ -7,6 +7,26 @@ const users = {
     ) as UserProps[];
   },
 
+  async update(
+    userId: number,
+    setUser: React.Dispatch<React.SetStateAction<UserProps>>,
+    setUsers: React.Dispatch<React.SetStateAction<UserProps[]>>,
+    params: { totalPosts: number }
+  ) {
+    const users = this.users().map((user) => {
+      if (user.id === userId) {
+        user.totalPosts = params.totalPosts;
+      }
+
+      return user;
+    });
+
+    localStorage.setItem("posterr-user", JSON.stringify(users[0]));
+    localStorage.setItem("posterr-users", JSON.stringify(users));
+    setUser(users[0]);
+    setUsers(users);
+  },
+
   async getUserById(userId: number) {
     const users = this.users();
 

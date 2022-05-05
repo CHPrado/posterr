@@ -42,6 +42,7 @@ const User = () => {
   }
 
   useEffect(() => {
+    if (!contextUser) return;
     fakeApi.users
       .getUserById(Number(id))
       .then((response) => setProfileUser(response.data));
@@ -90,7 +91,9 @@ const User = () => {
                 </div>
 
                 <div className="user-info-container">
-                  <span className="user-info-value">999</span>
+                  <span className="user-info-value">
+                    {profileUser.totalPosts}
+                  </span>
                   <span className="user-info-description">Total posts</span>
                 </div>
               </div>

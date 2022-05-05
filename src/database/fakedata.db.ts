@@ -12,6 +12,7 @@ const users: UserProps[] = [
     createdAt: new Date(),
     followingIds: [],
     followersIds: [],
+    totalPosts: 0,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const users: UserProps[] = [
     createdAt: new Date(2008, 10, 15),
     followingIds: [],
     followersIds: [],
+    totalPosts: 4,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const users: UserProps[] = [
     createdAt: new Date(2014, 2, 5),
     followingIds: [],
     followersIds: [],
+    totalPosts: 2,
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ const users: UserProps[] = [
     createdAt: new Date(2010, 1, 11),
     followingIds: [],
     followersIds: [],
+    totalPosts: 4,
   },
 ];
 

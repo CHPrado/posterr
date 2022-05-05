@@ -6,7 +6,8 @@ import { fakeApi } from "../../services";
 import "./post-form.scss";
 
 const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
-  const { contextUser, setContextPosts } = useContext(posterrContext);
+  const { contextUser, setContextUser, setContextUsers, setContextPosts } =
+    useContext(posterrContext);
   const [text, setText] = useState("");
 
   function handleTextChange(event: ChangeEvent<HTMLTextAreaElement>) {
@@ -15,8 +16,17 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
 
   function handlePostButtonClick() {
     fakeApi.posts
-      .createPost(contextUser.id, setContextPosts, text, repostId)
-      .then(() => setText(""));
+      .create(contextUser.id, setContextPosts, text, repostId)
+      .then(() => {
+        setText("");
+        const params = { totalPosts: contextUser.totalPosts + 1 };
+        fakeApi.users.update(
+          contextUser.id,
+          setContextUser,
+          setContextUsers,
+          params
+        );
+      });
   }
 
   return (

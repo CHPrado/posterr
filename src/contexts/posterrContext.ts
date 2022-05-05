@@ -18,6 +18,7 @@ const defaultUser: UserProps = {
   createdAt: new Date(),
   followersIds: [],
   followingIds: [],
+  totalPosts: 0,
 };
 
 const defaultValues: PosterrContext = {
