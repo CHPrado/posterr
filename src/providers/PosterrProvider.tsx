@@ -12,11 +12,19 @@ const PosterrProvider: FC<{ children: ReactNode }> = ({ children }) => {
     followingIds: [],
   };
   const [contextUser, setContextUser] = useState<UserProps>(defaultUser);
-  const [contexPosts, setContextPosts] = useState<PostProps[]>([]);
+  const [contextUsers, setContextUsers] = useState<UserProps[]>([]);
+  const [contextPosts, setContextPosts] = useState<PostProps[]>([]);
 
   return (
     <posterrContext.Provider
-      value={{ contextUser, contexPosts, setContextUser, setContextPosts }}
+      value={{
+        contextUser,
+        contextPosts,
+        contextUsers,
+        setContextUsers,
+        setContextUser,
+        setContextPosts,
+      }}
     >
       {children}
     </posterrContext.Provider>

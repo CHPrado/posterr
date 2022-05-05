@@ -16,9 +16,9 @@ type PostsParams = {
 };
 
 const Posts: FC<PostsParams> = ({ userId, userIds }) => {
-  const { contextUser, contexPosts, setContextPosts } =
+  const { contextUser, contextPosts, setContextPosts } =
     useContext(posterrContext);
-  const [posts, setPosts] = useState(contexPosts);
+  const [posts, setPosts] = useState(contextPosts);
   const [modalOpen, setModalOpen] = useState(false);
   const [quotePost, setQuotePost] = useState<PostProps>();
 
@@ -44,12 +44,12 @@ const Posts: FC<PostsParams> = ({ userId, userIds }) => {
       });
     }
     //eslint-disable-next-line
-  }, [userIds, contexPosts]);
+  }, [userIds, contextPosts]);
 
   useEffect(() => {
     disablePageScroll(false);
     setModalOpen(false);
-  }, [contexPosts]);
+  }, [contextPosts]);
 
   return (
     <>

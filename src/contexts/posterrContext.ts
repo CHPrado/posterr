@@ -4,8 +4,10 @@ import { PostProps, UserProps } from "../interfaces";
 
 interface PosterrContext {
   contextUser: UserProps;
-  contexPosts: PostProps[];
+  contextUsers: UserProps[];
+  contextPosts: PostProps[];
   setContextUser: React.Dispatch<React.SetStateAction<UserProps>>;
+  setContextUsers: React.Dispatch<React.SetStateAction<UserProps[]>>;
   setContextPosts: React.Dispatch<React.SetStateAction<PostProps[]>>;
 }
 
@@ -19,8 +21,10 @@ const defaultUser: UserProps = {
 
 const defaultValues: PosterrContext = {
   contextUser: defaultUser,
-  contexPosts: [],
+  contextUsers: [],
+  contextPosts: [],
   setContextUser: () => {},
+  setContextUsers: () => {},
   setContextPosts: () => {},
 };
 
