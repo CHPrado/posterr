@@ -10,7 +10,8 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
   const { contextUser, setContextUser, setContextUsers, setContextPosts } =
     useContext(posterrContext);
   const [text, setText] = useState("");
-  const [isDayPostsLimitExceeded, setIsDayPostsLimitExceeded] = useState(false);
+  const [isDailyPostsLimitExceeded, setIsDailyPostsLimitExceeded] =
+    useState(false);
 
   function handleTextChange(event: ChangeEvent<HTMLTextAreaElement>) {
     setText(event.target.value);
@@ -37,11 +38,10 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
       posted: new Date(),
     };
     fakeApi.posts.list(filter).then((response) => {
-      setIsDayPostsLimitExceeded(
+      setIsDailyPostsLimitExceeded(
         response.data.length >= USER_DAILY_POSTS_LIMIT
       );
     });
-    // eslint-disable-next-line
   }, [contextUser]);
 
   return (
@@ -55,10 +55,10 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
           maxLength={777}
           value={text}
           onChange={handleTextChange}
-          disabled={isDayPostsLimitExceeded}
+          disabled={isDailyPostsLimitExceeded}
         />
 
-        {isDayPostsLimitExceeded && (
+        {isDailyPostsLimitExceeded && (
           <span className="post-limit-warn">
             You exceeded the maximum amount of posts for the day. Try again
             tomorrow
@@ -69,7 +69,7 @@ const PostForm: FC<{ repostId?: number }> = ({ repostId }) => {
           <span>{text.length}/777</span>
           <button
             onClick={handlePostButtonClick}
-            disabled={!text.length || isDayPostsLimitExceeded}
+            disabled={!text.length || isDailyPostsLimitExceeded}
           >
             <span>Post</span>
           </button>

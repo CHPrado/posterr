@@ -52,7 +52,6 @@ const User = () => {
   useEffect(() => {
     if (!profileUser) return;
     setIsLoggedUser(contextUser.id === profileUser.id);
-    // eslint-disable-next-line
   }, [profileUser]);
 
   if (!profileUser) return <></>;

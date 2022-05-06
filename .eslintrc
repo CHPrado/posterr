@@ -3,6 +3,7 @@
   "plugins": ["prettier", "@typescript-eslint", "eslint-plugin-import-helpers"],
   "rules": {
     "prettier/prettier": "error",
+    "react-hooks/exhaustive-deps": false,
     "import-helpers/order-imports": [
       "warn",
       {

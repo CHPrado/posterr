@@ -60,7 +60,6 @@ const Posts: FC<PostsParams> = ({ userIds }) => {
         setPosts(response.data);
       });
     }
-    //eslint-disable-next-line
   }, [userIds, contextPosts, isHome]);
 
   useEffect(() => {

@@ -14,7 +14,6 @@ function App() {
     loggin(setContextUser);
     loadUsers(setContextUsers);
     loadPosts(setContextPosts);
-    // eslint-disable-next-line
   }, []);
 
   return (

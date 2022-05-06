@@ -24,7 +24,6 @@ const Post: FC<{ post: PostProps }> = ({ post }) => {
     }
 
     asyncCreatePostItem();
-    // eslint-disable-next-line
   }, []);
 
   if (!postItem) return <></>;
