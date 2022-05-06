@@ -1,3 +1,11 @@
+# Developer
+
+<b>Name:</b> Christian do Prado Silva<br>
+<b>Linkedin:</b> https://linkedin.com/in/christianprados<br>
+<b>GitHub:</b> https://github.com/CHPrado<br>
+
+<br>
+
 # Setting up Posterr
 
 ## Install dependencies
@@ -13,6 +21,32 @@ In the project directory, you can run:
 In the project directory, you can run:
 
 ### `npm start` or `yarn start`
+
+<br>
+
+# Poster
+
+## Database
+
+To simulate the database a file `(src/database/fakedata.db.ts)` containing data for the users and posts was created.
+The default data is loaded to localhost and to React context by a useData hook `(src/hooks/useData.ts)` to manage states and data.
+
+Logged User:
+
+- The logged user is loaded as the first user from the fake database;
+
+Posts:
+
+Only one "table" was used for all types of posts. The column `repostId` is used to link a post being `reposted` or `quote-posted` to a new post.
+
+- Posts with `repostId` and no text are considered `reposts`;
+- Posts with `repostId` and text are considered `quote-posts`;
+
+<br>
+
+## API
+
+A fakeApi service was created containing modules for posts `(src/services/fakeApi/modules/posts.ts)` and users `(src/services/fakeApi/modules/users.ts)`. Both modules contain async functions to simulate API calls.
 
 <br>
 
