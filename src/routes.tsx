@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { Posts } from "./components";
 import { posterrContext } from "./contexts";
-import { Home, User } from "./pages";
+import { Home, UserProfile } from "./pages";
 
 const Router = () => {
   const { contextUser } = useContext(posterrContext);
@@ -18,7 +18,7 @@ const Router = () => {
             element={<Posts userIds={contextUser.followingIds} />}
           />
         )}
-        <Route path="/user/:id" element={<User />} />
+        <Route path="/user/:id" element={<UserProfile />} />
       </Route>
       <Route path="*" element={<h1>Invalid route</h1>} />
     </Routes>

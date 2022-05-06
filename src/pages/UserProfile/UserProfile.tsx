@@ -9,7 +9,7 @@ import { posterrContext } from "../../contexts";
 import { UserProps } from "../../interfaces";
 import { fakeApi } from "../../services";
 
-import "./user.scss";
+import "./user-profile.scss";
 
 const User = () => {
   const { id } = useParams<"id">();

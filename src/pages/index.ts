@@ -1,4 +1,4 @@
 import Home from "./Home";
-import User from "./User";
+import UserProfile from "./UserProfile";
 
-export { Home, User };
+export { Home, UserProfile };
