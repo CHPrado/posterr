@@ -29,6 +29,13 @@
       }
     }
 
+    .post-info-username {
+      font-size: small;
+      font-weight: normal !important;
+      color: variables.$color-text-secondary;
+      margin-left: variables.$space-smaller;
+    }
+
     .post-info-date {
       font-size: small;
       font-weight: normal !important;

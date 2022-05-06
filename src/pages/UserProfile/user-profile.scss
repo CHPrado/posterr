@@ -24,7 +24,17 @@
         > .user-name {
           font-size: xx-large;
           font-weight: bolder;
-          padding-bottom: variables.$space-small;
+          padding-bottom: variables.$space-smaller;
+        }
+
+        > .user-username-container {
+          margin-bottom: variables.$space-medium;
+        }
+
+        > .user-info-container {
+          display: flex;
+          margin-top: variables.$space-smaller;
+          margin-bottom: variables.$space-smaller;
         }
 
         .user-info-value {
@@ -42,18 +52,13 @@
             margin-right: variables.$space-smaller;
           }
         }
-  
-        > .user-info-container {
-          display: flex;
-          margin-top: variables.$space-smaller;
-          margin-bottom: variables.$space-smaller;
-        }
       }
 
       > .user-buttons-container {
         padding-top: variables.$space-small;
 
         button {
+          height: variables.$space-larger;
           width: 110px;
           border: none;
           font-weight: bold;

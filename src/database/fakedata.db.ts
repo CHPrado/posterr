@@ -8,6 +8,7 @@ const users: UserProps[] = [
   {
     id: 1,
     name: "Amazing User",
+    username: "amazinguser",
     avatar: profileAvatar,
     createdAt: new Date(),
     followingIds: [],
@@ -17,6 +18,7 @@ const users: UserProps[] = [
   {
     id: 2,
     name: "Elon Musk",
+    username: "elonmusk",
     avatar: elonMuskAvatar,
     createdAt: new Date(2008, 10, 15),
     followingIds: [],
@@ -26,6 +28,7 @@ const users: UserProps[] = [
   {
     id: 3,
     name: "Bill Gates",
+    username: "billgates",
     avatar: billGatesAvatar,
     createdAt: new Date(2014, 2, 5),
     followingIds: [],
@@ -35,6 +38,7 @@ const users: UserProps[] = [
   {
     id: 4,
     name: "Mark Zuckerberg",
+    username: "markzuckerberg",
     avatar: markZuckerbergAvatar,
     createdAt: new Date(2010, 1, 11),
     followingIds: [],

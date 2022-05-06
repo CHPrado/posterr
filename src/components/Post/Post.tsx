@@ -44,6 +44,7 @@ const Post: FC<{ post: PostProps }> = ({ post }) => {
             <div className="post-info-container">
               <div>
                 <LinkToUserPage postItem={postItem!} />
+                <span className="post-info-username">{`@${postItem.user.username}`}</span>
                 <span className="post-info-date">{`• ${format(
                   new Date(postItem.createdAt),
                   "MMM d, yyyy"

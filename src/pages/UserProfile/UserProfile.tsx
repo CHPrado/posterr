@@ -71,6 +71,10 @@ const User = () => {
               <div className="user-data-container-2">
                 <span className="user-name">{profileUser?.name}</span>
 
+                <div className="user-username-container">
+                  <span className="user-info-description">{`@${profileUser?.username}`}</span>
+                </div>
+
                 <div className="user-info-container">
                   <span className="user-info-description">
                     <VscCalendar />

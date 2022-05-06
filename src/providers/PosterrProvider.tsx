@@ -8,6 +8,7 @@ const PosterrProvider: FC<{ children: ReactNode }> = ({ children }) => {
     id: 0,
     avatar: "",
     name: "",
+    username: "",
     createdAt: new Date(),
     followersIds: [],
     followingIds: [],

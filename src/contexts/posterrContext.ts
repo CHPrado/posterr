@@ -15,6 +15,7 @@ const defaultUser: UserProps = {
   id: 0,
   avatar: "",
   name: "",
+  username: "",
   createdAt: new Date(),
   followersIds: [],
   followingIds: [],
