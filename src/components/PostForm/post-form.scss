@@ -6,7 +6,11 @@
 
   > img {
     border-radius: 100%;
-    height: calc(2 * variables.$space-larger);
+    height: calc(2 * variables.$space-large);
+
+    @media (min-width: variables.$media-query-min-width) {
+      height: calc(2 * variables.$space-larger);
+    }
   }
 
   .post-form-container {

@@ -13,12 +13,18 @@
   > .modal-frame {
     position: relative;
     top: calc(variables.$space-larger * 2);
-    left: calc(50% - (variables.$content-container-width-medium / 2));
-    width: variables.$content-container-width-medium;
+    left: 0;
+    width: 100%;
+    min-width: variables.$content-container-width-small;
     border-radius: variables.$border-radius;
     background: variables.$color-background;
     display: flex;
     flex-direction: column;
+
+    @media (min-width: variables.$media-query-min-width) {
+      left: calc(50% - (variables.$content-container-width-medium / 2));
+      width: variables.$content-container-width-medium;
+    }
 
     > .modal-header {
       padding: variables.$space-small;

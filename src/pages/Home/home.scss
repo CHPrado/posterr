@@ -8,6 +8,7 @@
 
   .home-content-container {
     width: variables.$content-container-width-medium;
+    min-width: variables.$content-container-width-small;
     border-left: variables.$divider;
     border-right: variables.$divider;
     border-bottom: variables.$divider;

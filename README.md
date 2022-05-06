@@ -26,6 +26,13 @@ In the project directory, you can run:
 
 # Poster
 
+## Layout
+
+- UI and behavior based on Twitter's;
+- Responsive layout;
+
+<br>
+
 ## Database
 
 To simulate the database a file `(src/database/fakedata.db.ts)` containing data for the users and posts was created.

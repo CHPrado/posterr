@@ -87,7 +87,7 @@ const posts: PostProps[] = [
   },
   {
     id: 6,
-    text: "Mark Zuckerberg second post",
+    text: "Mark Zuckerberg second post BIG POST BIG POST BIG POST BIG POST BIG POST BIG POST BIG POST BIG POST BIG POST BIG POST BIG POST BIG POST  BIG POST BIG POST",
     userId: 4,
     repostId: undefined,
     createdAt: new Date(2012, 1, 15, 8),

@@ -7,7 +7,11 @@
 
     > img {
       border-radius: 100%;
-      height: calc(5 * variables.$space-larger);
+      height: calc(3 * variables.$space-larger);
+
+      @media (min-width: variables.$media-query-min-width) {
+        height: calc(5 * variables.$space-larger);
+      }
     }
 
     > .user-data-container {
@@ -22,9 +26,13 @@
         justify-content: space-between;
 
         > .user-name {
-          font-size: xx-large;
+          font-size: x-large;
           font-weight: bolder;
           padding-bottom: variables.$space-smaller;
+
+          @media (min-width: variables.$media-query-min-width) {
+            font-size: xx-large;
+          }
         }
 
         > .user-username-container {

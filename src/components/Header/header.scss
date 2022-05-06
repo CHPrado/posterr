@@ -36,12 +36,17 @@
         padding: variables.$space-small;
         color: variables.$color-text-main;
         text-decoration: none;
-    
+
         > span {
           margin-left: variables.$space-small;
           font-weight: bold;
+          display: none;
+
+          @media (min-width: variables.$media-query-min-width) {
+            display: block;
+          }
         }
-    
+
         &:hover {
           background: variables.$color-button;
         }
@@ -63,6 +68,11 @@
         margin-left: variables.$space-small;
         white-space: nowrap;
         font-weight: bold;
+        display: none;
+
+        @media (min-width: variables.$media-query-min-width) {
+          display: block;
+        }
       }
     }
   }
