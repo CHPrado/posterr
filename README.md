@@ -1,8 +1,30 @@
-# Developer
+# Posterr
 
-<b>Name:</b> Christian do Prado Silva<br>
-<b>Linkedin:</b> https://linkedin.com/in/christianprados<br>
-<b>GitHub:</b> https://github.com/CHPrado<br>
+A Twitter like app where you can post, follow other users to view, repost and quote-post their posts.
+
+<details>
+  <summary>Home Page</summary>
+  
+  <img width="1720" alt="image" src="https://user-images.githubusercontent.com/27180625/221292249-422c475f-a4ec-4f60-a07f-478145de99b7.png">
+</details>
+
+<details>
+  <summary>Profile Page</summary>
+  
+  <img width="1726" alt="image" src="https://user-images.githubusercontent.com/27180625/221292400-3daa2f8f-d5a1-4a6d-a07d-2b74aca3c233.png">
+</details>
+
+<details>
+  <summary>Following Page</summary>
+  
+  ![image](https://user-images.githubusercontent.com/27180625/221292597-48cb2ad8-7f34-49a0-9271-8b5efafb97f9.png)
+</details>
+
+<details>
+  <summary>Users Page</summary>
+  
+  <img width="1723" alt="image" src="https://user-images.githubusercontent.com/27180625/221292789-aedbdd23-8c45-4643-b31c-7b3548890dfa.png">
+</details>
 
 <br>
 
